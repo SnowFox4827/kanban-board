@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kanban Board - Dark Theme</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div id="colorPicker" style="
+    display:none;
+    position:fixed;
+    top:0; left:0; right:0; bottom:0;
+    background:rgba(0,0,0,0.7);
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+  ">
+    <div style="
+      background: var(--bg-surface);
+      padding: 20px;
+      border-radius: 12px;
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      max-width: 320px;
+    " id="colorPickerContent"></div>
+  </div>
+  <div>
+    <select id="boardSelect"></select>
+    <button onclick="createBoard()">New Board</button>
+    <button onclick="renameBoard()">Rename</button>
+    <button onclick="deleteBoard()">Delete</button>
+  </div>
+
+  <div>
+    <button onclick="addColumn()">Add Column</button>
+    <button onclick="exportJSON()">Export JSON</button>
+    <button onclick="triggerImport()">Import JSON</button>
+    <input type="file" id="fileInput" accept=".json" hidden />
+  </div>
+</header>
+
+<main id="board" class="board"></main>
+
+<script src="interactions.js"></script>
+
+</body>
+</html>
